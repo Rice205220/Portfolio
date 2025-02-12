@@ -1,0 +1,353 @@
+       /* 星號*就是對所有的標籤 id class*/
+       * {
+           /* 自動計算面積效應 */
+           box-sizing: border-box;
+       }
+
+       body {
+           margin: 0;
+           width: 100%;
+           height: 100vh;
+       }
+
+       .nav {
+           background-color: rgb(209, 206, 203);
+           width: 366px;
+           height: 100%;
+           float: left;
+           padding: 75px;
+       }
+
+       @media (max-width:1180px) {
+           .nav {
+               background-color: lightgray;
+               width: 100%;
+               height: 100px;
+               padding: 10px 20px;
+           }
+       }
+       @media (max-width:920px) {
+        .nav {
+            position: relative;
+        }
+    }
+
+      
+           .ham-btn {
+               width: 70px;
+               height: 70px;
+               background-color: rgb(247, 247, 247);
+               border-radius: 20px;
+               display: none;
+               float: left;
+               position: relative;
+
+           }
+
+           .ham-btn .line {
+               background-color: rgb(108, 108, 108);
+               width: 80%;
+               height: 10px;
+               position: absolute;
+               left: 50%;
+               transform: translate(-50%, -50%);
+               transition: 1s;
+           }
+
+           .ham-btn .line-1 {
+               top: 25%;
+           }
+
+           .ham-btn .line-2 {
+               top: 50%;
+           }
+
+           .ham-btn .line-3 {
+               top: 75%;
+           }
+       @media (max-width:920px) {
+        .ham-btn {
+            display: block;
+        }
+       #ham-menu-switch:checked+.ham-btn .line-1 {
+           top: 50%;
+           transform: translate(-50%, -50%) rotate(45deg);
+       }
+
+       #ham-menu-switch:checked+.ham-btn .line-2 {
+           display: none;
+       }
+
+       #ham-menu-switch:checked+.ham-btn .line-3 {
+           top: 50%;
+           transform: translate(-50%, -50%) rotate(-45deg);
+       }
+
+       #ham-menu-switch:checked~.nav-btn-all {
+           display: block;
+       }
+    }
+       .logo {
+           background-image: url(../IMG3/LOGO1.png);
+           width: 180px;
+           height: 180px;
+           background-size: cover;
+           background-position: center;
+           margin: 0 auto 80px;
+       }
+
+       @media (max-width:1180px) {
+           .logo {
+               width: 80px;
+               height: 80px;
+               float: left;
+           }
+       }
+
+       @media (max-width:920px) {
+           .logo {
+            width: 80px;
+            height: 80px;
+               position: absolute;
+               left: calc(50% - 50px);
+               /* transform: translateX(-50%); */
+           }
+       }
+
+       .logo:hover {
+           opacity: 0.5;
+           transform: rotateY(360deg);
+           transition: 1.5s;
+       }
+
+       .nav-btn-all {
+           /* background-color: blueviolet; */
+           width: 200px;
+           height: 300px;
+           margin: 0 auto;
+       }
+
+       @media (max-width:1180px) {
+           .nav-btn-all {
+               width: auto;
+               height: auto;
+               margin-top: 15px;
+               float: right;
+           }
+       }
+
+       @media (max-width:920px) {
+           .nav-btn-all {
+            background-color: rgb(255, 255, 255);
+               width: 40%;
+               height: 200px;
+               padding: 10px;
+               display: none;
+               position: absolute;
+               top: 85px;
+               left: 0;
+               opacity: 0.9;
+               border-bottom-right-radius: 20px;
+           }
+       }
+
+       .nav-btn {
+           background-color: rgb(171, 168, 166);
+           color: white;
+           width: 100%;
+           height: 50px;
+           margin-bottom: 10px;
+           font-size: 24px;
+           line-height: 50px;
+           text-align: center;
+           /* border: 1px inset; */
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           float: left;
+           border-radius: 20px;
+       }
+
+       @media (max-width:1180px) {
+           .nav-btn {
+               width: auto;
+               padding: 0 20px;
+               margin-left: 10px;
+           }
+       }
+
+       @media (max-width:920px) {
+           .nav-btn {
+               width: 95%;
+               height: 50px;
+               margin-bottom: 10px;
+               font-size: 24px;
+               line-height: 50px;
+               text-align: center;   
+               opacity: 0.9;
+           }
+       }
+
+       a {
+           text-decoration: none;
+       }
+
+       a:link {
+           color: rgb(255, 255, 255);
+       }
+
+       a:visited {
+           background-color: rgb(130, 128, 127);
+       }
+
+       a:hover {
+           opacity: 0.7;
+       }
+
+       a:active {
+           background-color: rgb(248, 240, 226);
+           color: black;
+           font-size: 24px;
+       }
+
+       .container {
+           /* background-color: rgb(172, 163, 151); */
+           background-image: url(../IMG3/museum2.jpg);
+           background-size: cover;
+           background-position: center;
+           width: calc(100% - 366px);
+           height: 100%;
+           float: left;
+           padding-top: calc((100vh - 570px) / 2);
+       }
+
+       @media (max-width:1180px) {
+           .container {
+               width: 100%;
+               height: calc(100% - 100px);
+               padding: 50px 150px;
+           }
+       }
+       @media (max-width:920px) {
+        .container {
+            padding: 0px;
+        }
+    }
+
+
+       .content {
+           /* background-color: white; */
+           width: 960px;
+           height: 570px;
+           margin: auto;
+       }
+
+       @media (max-width:1350px) {
+           .content {
+               width: 800px;
+           }
+       }
+
+       @media (max-width:1180px) {
+           .content {
+               width: 100%;
+               height: 100%;
+               margin: auto;
+           }
+       }
+       @media (max-width:920px) {
+        .content {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+       .img {
+           background-color: blueviolet;
+           width: calc((100% - 10px *2)/ 3);
+           height: 100%;
+           float: left;
+           background-size: cover;
+           background-position: center;
+       }
+
+       @media (max-width:1350px) {
+           .img {
+               background-color: blueviolet;
+               /* width: calc((100% - 10px *2)/ 3); */
+               height: calc(50% - 5px);
+               float: left;
+               background-size: cover;
+               background-position: 10px;
+               float: left;
+           }
+       }
+
+       @media (max-width:1180px) {
+           .img {
+               background-color: blueviolet;
+               /* width: calc((100% - 10px *2)/ 3); */
+               height: calc(50% - 5px);
+               float: left;
+               background-size: cover;
+               background-position: 10px;
+               float: left;
+           }
+       }
+
+       .img:hover {
+           /* transform: rotate(45deg);
+            transform: scale(0.8); */
+           opacity: 0.5;
+           /* transform: rotateY(180deg); */
+           transition: 1s;
+           transform: scale(1.03);
+           /* border-radius: 30px; */
+       }
+
+       .img-1 {
+           background-image: url(../IMG3/2f56703adb297287f8689457738930c3.jpg);
+       }
+
+       .img-2 {
+           background-image: url(../IMG3/8b02999fca04db40267467a3094857e1.jpg);
+           margin: 0 10px;
+       }
+
+       .img-3 {
+           background-image: url(../IMG3/9575df6180c72bb26c0baa0b08372492.jpg);
+       }
+
+       @media (max-width:1350px) {
+           .img-1 {
+               width: 100%;
+               margin-bottom: 10px;
+           }
+
+           .img-2 {
+               margin-left: 0;
+               margin-right: 10px;
+               width: calc(50% - 5px);
+           }
+
+           .img-3 {
+               width: calc(50% - 5px);
+           }
+       }
+
+       @media (max-width:920px) {
+           .img-1 {
+               margin: 0 auto;
+               width: 100%;
+               height: calc(100% / 3);
+           }
+
+           .img-2 {
+               width: 100%;
+               height: calc(100% / 3);
+           }
+
+           .img-3 {
+               width: 100%;
+               height: calc(100% / 3);
+
+           }
+       }
