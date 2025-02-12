@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 設定整體頁面樣式 */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        html{
+            background-image: url(./IMG/bf2ea564c98f9729f7b6286346ba9808.jpg);
+            background-size: cover;
+            /* 保持背景圖片比例 */
+            background-position: center;
+            /* 圖片居中 */
+            background-repeat: no-repeat;
+            /* 防止圖片重複 */
+        }
+
+        /* 圓圈容器，將四個圓圈排成一行 */
+        .circle-container {
+            display: flex;
+            justify-content: space-between;
+            /* 圓圈之間平均分布 */
+            width: 300px;
+            margin-bottom: 20px;
+            /* 讓圓圈與窗簾有一些間距 */
+            z-index: 10;
+        }
+
+        .circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: #d5b527;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            animation: colorChange 5s infinite;
+            text-align: center;
+            font-family: 'Noto Sans JP', sans-serif;
+            position: relative;
+        }
+
+        img {
+            width: 60px;
+            right: 4px;
+            position: absolute;
+        }
+
+        /* 各圓圈的不同延遲時間，實現從左到右的顏色變化 */
+        .circle.left {
+            animation-delay: 0s;
+            /* 第一個圓圈，無延遲 */
+        }
+
+        .circle.middle-left {
+            animation-delay: 1.25s;
+            /* 第二個圓圈，延遲1.25秒 */
+        }
+
+        .circle.middle-right {
+            animation-delay: 2.5s;
+            /* 第三個圓圈，延遲2.5秒 */
+        }
+
+        .circle.right {
+            animation-delay: 3.75s;
+            /* 第四個圓圈，延遲3.75秒 */
+        }
+
+        /* 設置顏色變換的動畫 */
+        @keyframes colorChange {
+            0% {
+                background-color: #a35d4d;
+            }
+
+            25% {
+                background-color: #d5b527;
+            }
+
+            50% {
+                background-color: #5eae9b;
+            }
+
+            75% {
+                background-color: #f06d27;
+            }
+
+            100% {
+                background-color: #cd5757;
+            }
+        }
+
+        /* 定義窗簾容器 */
+        .curtain-container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        /* 左右窗簾的樣式 */
+        .curtain {
+            border: 2px solid #696053;
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #514d48;
+            transition: transform 1s ease-in-out;
+            z-index: 1;
+        }
+
+        /* 左邊窗簾 */
+        .curtain.left {
+            left: 0;
+            transform-origin: left center;
+        }
+
+        /* 右邊窗簾 */
+        .curtain.right {
+            right: 0;
+            transform-origin: right center;
+        }
+
+        /* 定義圓形的樣式 */
+        .loading-circle {
+            width: 200px;
+            height: 200px;
+            background-color: #494540;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items:flex-end;
+            color: rgb(235, 235, 235);
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 0.5;
+            background-image: url(./IMG/2a51ff9852f29cc87c90ac734e358646.gif);
+            background-size: cover;
+            /* 保持背景圖片比例 */
+            background-position: center;
+            /* 圖片居中 */
+            background-repeat: no-repeat;
+            /* 防止圖片重複 */
+        }
+        /* 當滑鼠進入窗簾區域時，觸發窗簾拉開的效果 */
+        .curtain-container:hover .curtain.left {
+            transform: translateX(-100%);
+        }
+
+        .curtain-container:hover .curtain.right {
+            transform: translateX(100%);
+        }
+
+        /* 當窗簾完全打開時，顯示圓形 */
+        .curtain-container:hover .loading-circle {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* 動畫結束後，隱藏圓形 */
+        .curtain-container .curtain.left,
+        .curtain-container .curtain.right {
+            transition: transform 1s ease-in-out, transform-origin 1s ease-in-out;
+        }
+
+        .curtain-container .loading-circle {
+            animation: hideLoading 3s forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 四個圓圈容器，排列在窗簾的上方 -->
+    <div class="circle-container">
+        <div class="circle left"> <img src="./IMG/秘.png" alt=""></div>
+        <div class="circle middle-left"><img src="./IMG/密.png" alt=""></div>
+        <div class="circle middle-right"><img src="./IMG/の.png" alt=""></div>
+        <div class="circle right"><img src="./IMG/窓.png" alt=""></div>
+    </div>
+
+    <!-- 窗簾容器 -->
+    <div class="curtain-container">
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+        <div class="loading-circle">
+            <br>待って</br> <br> </br>
+        </div>
+    </div>
+</body>
+
+</html>
